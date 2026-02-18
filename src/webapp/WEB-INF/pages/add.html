@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление пользователя</title>
+</head>
+<body>
+
+<h2>Информация о пользователе:</h2>
+
+<form action="/users/add" method="post">
+    <table>
+        <tr>
+            <td><label>Имя:</label>
+            <td><input type="text" name="name" required></td>
+        </tr>
+
+        <tr>
+            <td><label>Фамилия:</label></td>
+            <td><input type="text" name="surname" required></td>
+        </tr>
+
+        <tr>
+            <td><label>Возраст:</label></td>
+            <td><input type="number" name="age" required></td>
+        </tr>
+    </table>
+
+    <button type="submit">Сохранить</button>
+    <a href="/"><button type="button">Отмена</button></a>
+</form>
+
+</body>
+</html>
