@@ -28,8 +28,7 @@ public class UserController {
 
 	@PostMapping(value = "/users/add")
 	public String addUser(@RequestParam String name, @RequestParam String surname, @RequestParam int age) {
-		User user = new User(name, surname, age);
-		service.addUser(user);
+		service.addUser(name, surname, age);
 		return "redirect:/";
 	}
 
@@ -42,13 +41,11 @@ public class UserController {
 
 	@PostMapping("/users/update")
 	public String updateUser(@RequestParam Long id, @RequestParam String name, @RequestParam String surname, @RequestParam int age) {
-		User user = new User(name, surname, age);
-		user.setId(id);
-		service.updateUser(user);
+		service.updateUser(id, name, surname, age);
 		return "redirect:/";
 	}
 
-	@GetMapping("/users/delete/")
+	@PostMapping("/users/delete")
 	public String deleteUser(@RequestParam("id") Long id) {
 		service.removeUserById(id);
 		return "redirect:/";

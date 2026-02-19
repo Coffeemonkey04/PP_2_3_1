@@ -19,7 +19,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void addUser(User user) {
+    public void addUser(String name, String surname, int age) {
+        User user = new User(name, surname, age);
         userDao.addUser(user);
     }
 
@@ -39,12 +40,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void cleanUsersTable() {
-        userDao.cleanUsersTable();
-    }
-
-    @Override
-    public void updateUser(User user) {
+    public void updateUser(Long id, String name, String surname, int age) {
+        User user = userDao.getUserById(id);
+        user.setName(name);
+        user.setSurname(surname);
+        user.setAge(age);
         userDao.updateUser(user);
     }
 }
